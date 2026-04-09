@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        /* Modern Sans-Serif Font Stack */
-        body {
+        /* Force the underlying 'canvas' to be transparent */
+        html, body {
             margin: 0;
-            padding: 15px 0;
-            background-color: transparent;
-            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: flex;
-            justify-content: center;
+            padding: 0;
+            background: transparent !important;
+            background-color: rgba(0,0,0,0) !important;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* Prevents the webview from intercepting touches meant for the slider */
+            pointer-events: none; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         }
 
-        .mood-container {
+        .mood-bar {
             display: flex;
             justify-content: space-between;
-            width: 92%; /* Adjust to align with your mobile slider's width */
-            max-width: 600px;
+            align-items: center;
+            /* Adjust padding-left/right to align with your mobile slider's edges */
+            padding: 10px 15px;
         }
 
         .mood-item {
@@ -28,55 +31,30 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
-            text-align: center;
         }
 
         .emoji {
-            font-size: 30px; 
-            margin-bottom: 6px;
-            /* Ensures emojis don't get cut off on some Android WebViews */
-            line-height: 1.2; 
+            font-size: 26px;
+            margin-bottom: 2px;
         }
 
         .label {
-            font-size: 11px;
-            color: #444444;
+            font-size: 10px;
+            color: #666; /* Adjust color to contrast with your app's background */
             font-weight: 500;
-            text-transform: uppercase; /* Optional: looks very clean in UI design */
-            letter-spacing: 0.02em;
+            text-align: center;
             white-space: nowrap;
-        }
-
-        /* Adjustments for very narrow screens */
-        @media (max-width: 360px) {
-            .label { font-size: 9px; }
-            .emoji { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-<div class="mood-container">
-    <div class="mood-item">
-        <span class="emoji">😠</span>
-        <span class="label">Very upset</span>
-    </div>
-    <div class="mood-item">
-        <span class="emoji">🙁</span>
-        <span class="label">Low</span>
-    </div>
-    <div class="mood-item">
-        <span class="emoji">😐</span>
-        <span class="label">Neutral</span>
-    </div>
-    <div class="mood-item">
-        <span class="emoji">🙂</span>
-        <span class="label">Good</span>
-    </div>
-    <div class="mood-item">
-        <span class="emoji">😄</span>
-        <span class="label">Happy</span>
-    </div>
+<div class="mood-bar">
+    <div class="mood-item"><span class="emoji">😠</span><span class="label">Very upset</span></div>
+    <div class="mood-item"><span class="emoji">🙁</span><span class="label">Low</span></div>
+    <div class="mood-item"><span class="emoji">😐</span><span class="label">Neutral</span></div>
+    <div class="mood-item"><span class="emoji">🙂</span><span class="label">Good</span></div>
+    <div class="mood-item"><span class="emoji">😄</span><span class="label">Happy</span></div>
 </div>
 
 </body>
