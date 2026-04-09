@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Modern Sans-Serif Font Stack */
+        body {
+            margin: 0;
+            padding: 15px 0;
+            background-color: transparent;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mood-container {
+            display: flex;
+            justify-content: space-between;
+            width: 92%; /* Adjust to align with your mobile slider's width */
+            max-width: 600px;
+        }
+
+        .mood-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 30px; 
+            margin-bottom: 6px;
+            /* Ensures emojis don't get cut off on some Android WebViews */
+            line-height: 1.2; 
+        }
+
+        .label {
+            font-size: 11px;
+            color: #444444;
+            font-weight: 500;
+            text-transform: uppercase; /* Optional: looks very clean in UI design */
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        /* Adjustments for very narrow screens */
+        @media (max-width: 360px) {
+            .label { font-size: 9px; }
+            .emoji { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mood-container">
+    <div class="mood-item">
+        <span class="emoji">😠</span>
+        <span class="label">Very upset</span>
+    </div>
+    <div class="mood-item">
+        <span class="emoji">🙁</span>
+        <span class="label">Low</span>
+    </div>
+    <div class="mood-item">
+        <span class="emoji">😐</span>
+        <span class="label">Neutral</span>
+    </div>
+    <div class="mood-item">
+        <span class="emoji">🙂</span>
+        <span class="label">Good</span>
+    </div>
+    <div class="mood-item">
+        <span class="emoji">😄</span>
+        <span class="label">Happy</span>
+    </div>
+</div>
+
+</body>
+</html>
